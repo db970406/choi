@@ -2,7 +2,6 @@ import Contact from '@components/Contact'
 import Introduce from '@components/Introduce'
 import MainLayout from '@components/MainLayout'
 import MyStudies from '@components/MyStudies'
-import OpenLinkButton from '@components/OpenLinkButton'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 
@@ -14,6 +13,8 @@ const Home: NextPage = () => {
         width="300"
         height="300"
         className="rounded-full"
+        placeholder='blur'
+        blurDataURL="/choi.jpg"
       />
       <div
         className='flex flex-col space-y-5 items-center md:items-start'

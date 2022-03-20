@@ -20,7 +20,7 @@ const MainLayout = ({ children, title }: IMainLayout) => {
             <div
                 className="
                     flex flex-col items-center md:flex-row md:justify-around space-y-8 
-                    md:space-x-8 px-10 md:px-32 w-full
+                    md:space-x-8 px-10 md:px-32 w-full py-10
                 "
             >
                 {children}
