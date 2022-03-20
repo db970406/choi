@@ -1,18 +1,25 @@
+import Head from 'next/head'
 import React from 'react'
+import NavBar from './NavBar'
 
 
 interface IMainLayout {
-    children: React.ReactNode
+    children: React.ReactNode;
+    title: string;
 }
 
-const MainLayout = ({ children }: IMainLayout) => {
+const MainLayout = ({ children, title }: IMainLayout) => {
     return (
         <div
             className="
                 flex justify-center items-center
-                w-screen h-screen text-red-400
+                w-screen h-screen
             "
         >
+            <Head>
+                <title>{title} | 최성준</title>
+            </Head>
+            <NavBar />
             {children}
         </div>
     )
