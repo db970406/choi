@@ -5,7 +5,7 @@ const NavBar = () => {
         <div
             className="
                 flex justify-around items-center
-                absolute top-0 w-full h-20 shadow-xl
+                top-0 w-full h-20 shadow-xl
             "
         >
             <button>
