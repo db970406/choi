@@ -9,15 +9,17 @@ const contactVariants = {
     end: {
         x: 0,
         opacity: 1,
+        color: "rgba(0,0,0,0.4)",
         transition: {
-            duration: 0.2,
+            duration: 0.1,
         }
     },
     hover: {
         scale: 1.07,
-        color: "black",
+        color: "rgba(0,0,0,1)",
         transition: {
-            ease: 'linear'
+            duration: 0.1,
+            ease: 'easeIn'
         }
     }
 }
@@ -25,7 +27,7 @@ const contactVariants = {
 const Contact = () => {
     return (
         <div
-            className="flex flex-col justify-center space-y-2"
+            className="flex flex-col justify-center space-y-2 absolute"
         >
             <h2
                 className="text-2xl"
@@ -33,16 +35,17 @@ const Contact = () => {
                 Contact
             </h2>
             <Link
-                href="https://mail.google.com/mail/u/0/#inbox?compose=new"
+                href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHvbCKNdwfVFWlPlvPLXVZDJLXFCVbWqSvhRbZhKfmDNLLQWnxRLMgvqrCmWxWJDvKCFlrW"
             >
                 <motion.a
+                    href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHvbCKNdwfVFWlPlvPLXVZDJLXFCVbWqSvhRbZhKfmDNLLQWnxRLMgvqrCmWxWJDvKCFlrW"
                     variants={contactVariants}
                     initial="start"
                     animate="end"
                     whileHover="hover"
                     className="
                         flex items-center space-x-2 
-                        text-gray-500 transition cursor-pointer
+                        transition cursor-pointer
                     "
                     target="_blank"
                 >
@@ -62,7 +65,7 @@ const Contact = () => {
                     whileHover="hover"
                     className="
                         flex items-center space-x-2 
-                        text-gray-500 transition cursor-pointer
+                        transition cursor-pointer
                     "
                     target="_blank"
                 >

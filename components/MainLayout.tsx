@@ -19,9 +19,9 @@ const MainLayout = ({ children, title }: IMainLayout) => {
             <NavBar />
             <div
                 className="
-                    flex flex-col items-center md:flex-row md:justify-around space-y-8 
-                    md:space-x-8 px-10 md:px-32 w-full py-10
-                "
+                    box-border
+                    flex flex-col md:flex-row justify-around items-center 
+                    space-y-4 py-10 px-12"
             >
                 {children}
             </div>
