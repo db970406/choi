@@ -6,14 +6,14 @@ interface IImageHoverComponent {
     imgPath: string;
     size: number;
     children: React.ReactNode;
-    setSelectedProject?: Dispatch<SetStateAction<number | null>>
+    setSelectedProjectId?: Dispatch<SetStateAction<number | null>>
 };
 
-const ImageHover = ({ projectId, imgPath, size, children: showComponentWhenHover, setSelectedProject }: IImageHoverComponent) => {
+const ImageHover = ({ projectId, imgPath, size, children: showComponentWhenHover, setSelectedProjectId }: IImageHoverComponent) => {
     const [isHovering, setIsHovering] = useState(false);
 
     const onClick = () => {
-        if (setSelectedProject) setSelectedProject(projectId!);
+        if (setSelectedProjectId) setSelectedProjectId(projectId!);
     }
     return (
         <button

@@ -17,41 +17,48 @@ interface IProjectDetail {
 }
 const ProjectDetail = ({ id, skills, link, projectName, description, whatILearned, duration }: IProjectDetail) => {
     return (
-        <div className="w-full">
-            <div className='flex items-end space-x-4'>
-                <Link
-                    href={link}
-                >
-                    <a
-                        target="_blank"
-                    >
-                        <h1
-                            className="text-4xl"
-                        >
-                            {projectName}
-                        </h1>
-                    </a>
-                </Link>
-                <p>{duration}</p>
-            </div>
+        <div className="w-full flex ">
             <div
-                className="flex space-x-4"
+                className="w-full space-y-8"
             >
-                {skills.map(skill =>
-                    <div>
-                        <Image
-                            src={`/${skill}.png`}
-                            width={60}
-                            height={60}
-                            placeholder="blur"
-                            blurDataURL={`/${skill}.png`}
-                        />
-                    </div>
-                )}
+                <div className='flex items-end space-x-4'>
+                    <Link
+                        href={link}
+                    >
+                        <a
+                            target="_blank"
+                        >
+                            <h1
+                                className="text-4xl text-gray-400 hover:text-fuchsia-500 transition"
+                            >
+                                {projectName}
+                            </h1>
+                        </a>
+                    </Link>
+                    <p>{duration}</p>
+                </div>
+                <div
+                    className="flex space-x-4"
+                >
+                    {skills.map(skill =>
+                        <div
+                            key={skill}
+                        >
+                            <Image
+                                src={`/${skill}.png`}
+                                width={60}
+                                height={60}
+                                placeholder="blur"
+                                blurDataURL={`/${skill}.png`}
+                            />
+                        </div>
+                    )}
+                </div>
+                <p>
+                    설명 : {description}
+                </p>
             </div>
-            <div>
-                설명 : {description}
-            </div>
+
         </div>
     );
 };

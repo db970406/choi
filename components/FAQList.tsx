@@ -1,18 +1,7 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import myFAQs from "../myFAQs.json";
-
-const FAQVariants = {
-    start: {
-        backgroundColor: "rgba(0,0,0,0)"
-    },
-    end: {
-        backgroundColor: "rgba(0,0,0,0.8)"
-    },
-    exit: {
-        backgroundColor: "rgba(0,0,0,0)"
-    }
-};
+import LayoutIdAnimation from './LayoutIdAnimation';
 
 const FAQList = () => {
     const [faqId, setFaqId] = useState<number | null>(null);
@@ -61,38 +50,11 @@ const FAQList = () => {
                         </svg>
                     </motion.div>
                 )}
-                <AnimatePresence>
-                    {faqId !== null ? (
-                        <motion.div
-                            variants={FAQVariants}
-                            initial="start"
-                            animate="end"
-                            exit="exit"
-                            onClick={() => setFaqId(null)}
-                            className='
-                                flex justify-center items-center 
-                                fixed w-screen h-screen 
-                                inset-0 px-16
-                                md:px-80
-                            '
-                        >
-                            <motion.div
-                                layoutId={String(faqId)}
-                                className="bg-white w-full rounded-2xl p-10 space-y-6"
-                                onClick={(event) => event.stopPropagation()}
-                            >
-                                <h1 className="text-2xl">
-                                    {myFAQs[faqId - 1]?.title}
-                                </h1>
-                                <p
-                                    className='whitespace-pre-wrap'
-                                >
-                                    {myFAQs[faqId - 1]?.content}
-                                </p>
-                            </motion.div>
-                        </motion.div>
-                    ) : null}
-                </AnimatePresence>
+                <LayoutIdAnimation
+                    id={faqId}
+                    setId={setFaqId}
+                    data={myFAQs}
+                />
             </div>
         </div>
     );

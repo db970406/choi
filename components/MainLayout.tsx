@@ -20,8 +20,9 @@ const MainLayout = ({ children, title }: IMainLayout) => {
             <div
                 className="
                     box-border
-                    flex flex-col md:flex-row justify-around items-center 
-                    space-y-4 py-10 px-12 font-bold"
+                    flex flex-col md:flex-row items-center 
+                    space-y-4 py-10 px-12 font-bold
+                "
             >
                 {children}
             </div>
