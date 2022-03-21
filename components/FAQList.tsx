@@ -24,7 +24,7 @@ const FAQList = () => {
             <h1 className="text-center">최성준에 대해 궁금하실 것 같은 것들만 모아봤어요!</h1>
             <div
                 className="
-                    border-2 border-t-fuchsia-400 justify-center rounded-xl
+                    border-2 hover:border-fuchsia-400 justify-center rounded-xl transition
                     divide-y-2 divide-fuchsia-300 md:mx-16
                 "
             >

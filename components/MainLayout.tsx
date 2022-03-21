@@ -11,7 +11,7 @@ interface IMainLayout {
 const MainLayout = ({ children, title }: IMainLayout) => {
     return (
         <div
-            className='space-y-3 font-bold'
+            className='space-y-3 '
         >
             <Head>
                 <title>{title} | 최성준</title>
@@ -21,7 +21,7 @@ const MainLayout = ({ children, title }: IMainLayout) => {
                 className="
                     box-border
                     flex flex-col md:flex-row justify-around items-center 
-                    space-y-4 py-10 px-12"
+                    space-y-4 py-10 px-12 font-bold"
             >
                 {children}
             </div>
