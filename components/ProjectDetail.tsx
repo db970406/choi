@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import OpenLinkButton from './OpenLinkButton';
 
 interface IProjectDetail {
     id: number;
@@ -13,13 +14,15 @@ interface IProjectDetail {
         content: string;
     }[];
     duration: string;
-
+    velog: string;
+    github: string;
 }
-const ProjectDetail = ({ id, skills, link, projectName, description, whatILearned, duration }: IProjectDetail) => {
+
+const ProjectDetail = ({ id, skills, link, projectName, description, whatILearned, duration, github, velog }: IProjectDetail) => {
     return (
-        <div className="w-full flex ">
+        <div className="w-full ">
             <div
-                className="w-full space-y-8"
+                className="w-full space-y-8 md:px-16"
             >
                 <div className='flex items-end space-x-4'>
                     <Link
@@ -54,9 +57,17 @@ const ProjectDetail = ({ id, skills, link, projectName, description, whatILearne
                         </div>
                     )}
                 </div>
-                <p>
-                    설명 : {description}
+                <p
+                    className="break-words whitespace-pre-wrap"
+                >
+                    {description}
                 </p>
+                <div
+                    className='flex space-x-4'
+                >
+                    <OpenLinkButton link={github} siteName="깃허브" />
+                    <OpenLinkButton link={velog} siteName="벨로그" />
+                </div>
             </div>
 
         </div>

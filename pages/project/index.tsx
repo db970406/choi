@@ -44,7 +44,7 @@ const Project: NextPage = () => {
                                 </motion.div>
                             )}
                         </div>
-                        <div className='flex'>
+                        <div className='flex flex-col md:flex-row space-y-7'>
                             {selectedProjectId !== null ? (
                                 <ProjectDetail
                                     {...myProjects[selectedProjectId - 1]}
@@ -54,19 +54,23 @@ const Project: NextPage = () => {
                             <div
                                 className='flex flex-col w-full'
                             >
-                                <h1 className="text-center text-xl">프로젝트 진행 시 중요했던 점</h1>
+                                <h1
+                                    className="text-center text-xl"
+                                >
+                                    프로젝트 진행 시 기억에 남았던 점
+                                </h1>
                                 {myProjects?.map((project) =>
                                     project?.whatILearned?.map(learned =>
                                         <motion.div
                                             key={learned.id}
                                             layoutId={String(learned.id)}
                                             className='
-                                        w-full px-5 py-3
-                                        flex justify-between
-                                        group
-                                        cursor-pointer
-                                        text-gray-500 hover:text-fuchsia-500
-                                    '
+                                                w-full px-5 py-3
+                                                flex justify-between
+                                                group
+                                                cursor-pointer
+                                                text-gray-500 hover:text-fuchsia-500
+                                            '
                                             onClick={() => setWhatILearnedId(learned.id)}
                                         >
                                             <h1
