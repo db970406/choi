@@ -31,6 +31,7 @@ const ProjectDetail = ({ skills, link, projectName, description, duration, githu
                     {skills.map(skill =>
                         <div
                             key={skill}
+                            className="flex flex-col items-center"
                         >
                             <Image
                                 src={`/${skill}.png`}
@@ -39,6 +40,7 @@ const ProjectDetail = ({ skills, link, projectName, description, duration, githu
                                 placeholder="blur"
                                 blurDataURL={`/${skill}.png`}
                             />
+                            <p className='text-xs'>{skill}</p>
                         </div>
                     )}
                 </div>
