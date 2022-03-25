@@ -4,16 +4,34 @@ import ProjectSemiDetail from '@components/ProjectSemiDetail';
 import { motion } from 'framer-motion';
 import { NextPage } from 'next';
 import { useState } from 'react';
-import myProjects from "myProjects.json";
 import ProjectDetail from '@components/ProjectDetail';
 import LayoutIdAnimation from '@components/LayoutIdAnimation';
+import { readdirSync, readFileSync } from 'fs';
+import matter from "gray-matter"
 
-const Project: NextPage = () => {
+export interface IProjectDetail {
+    id: number;
+    skills: string[];
+    projectName: string;
+    description: string;
+    link: string;
+    whatILearned: {
+        id: number;
+        title: string;
+        content: string;
+    }[];
+    duration: string;
+    velog: string;
+    github: string;
+}
+
+const Project: NextPage<{ myProjects: IProjectDetail[] }> = ({ myProjects }) => {
     const [selectedProjectId, setSelectedProjectId] = useState<number | null>(null);
     const [whatILearnedId, setWhatILearnedId] = useState<number | null>(null);
 
+    const projectName = myProjects[selectedProjectId! - 1]?.projectName
     return (
-        <MainLayout title="프로젝트">
+        <MainLayout title={projectName ? projectName : "프로젝트"}>
             <div
                 className="w-full"
             >
@@ -57,47 +75,45 @@ const Project: NextPage = () => {
                                 <h1
                                     className="text-center text-xl"
                                 >
-                                    프로젝트 진행 시 기억에 남았던 점
+                                    프로젝트 특징 및 진행 시 이슈
                                 </h1>
-                                {myProjects?.map((project) =>
-                                    project?.whatILearned?.map(learned =>
-                                        <motion.div
-                                            key={learned.id}
-                                            layoutId={String(learned.id)}
-                                            className='
+                                {myProjects[selectedProjectId - 1].whatILearned.map((learned) =>
+                                    <motion.div
+                                        key={learned.id}
+                                        layoutId={String(learned.id)}
+                                        className='
                                                 w-full px-5 py-3
                                                 flex justify-between
                                                 group
                                                 cursor-pointer
                                                 text-gray-500 hover:text-fuchsia-500
                                             '
-                                            onClick={() => setWhatILearnedId(learned.id)}
+                                        onClick={() => setWhatILearnedId(learned.id)}
+                                    >
+                                        <h1
+                                            className='group-hover:scale-105 transition'
                                         >
-                                            <h1
-                                                className='group-hover:scale-105 transition'
-                                            >
-                                                {learned.title}
-                                            </h1>
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="
+                                            {learned.title}
+                                        </h1>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="
                                             h-6 w-6
                                             group-hover:scale-105 transition
                                         "
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                                strokeWidth={2}
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                            </svg>
-                                        </motion.div>
-                                    )
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                            strokeWidth={2}
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                        </svg>
+                                    </motion.div>
                                 )}
                                 <LayoutIdAnimation
                                     id={whatILearnedId}
                                     setId={setWhatILearnedId}
-                                    data={myProjects?.map(project => project.whatILearned)[0]}
+                                    data={myProjects[selectedProjectId - 1].whatILearned}
                                 />
                             </div>
                         </div>
@@ -135,5 +151,17 @@ const Project: NextPage = () => {
         </MainLayout >
     );
 };
+
+export async function getStaticProps() {
+    const myProjects = readdirSync("./myProjects").map((file) => {
+        const mdFile = readFileSync(`./myProjects/${file}`, 'utf-8')
+        return matter(mdFile).data
+    })
+    return {
+        props: {
+            myProjects
+        }
+    }
+}
 
 export default Project;
