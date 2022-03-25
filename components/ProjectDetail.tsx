@@ -1,24 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { IProjectDetail } from 'pages/project';
 import OpenLinkButton from './OpenLinkButton';
 
-interface IProjectDetail {
-    id: number;
-    skills: string[];
-    projectName: string;
-    description: string;
-    link: string;
-    whatILearned: {
-        id: number;
-        title: string;
-        content: string;
-    }[];
-    duration: string;
-    velog: string;
-    github: string;
-}
-
-const ProjectDetail = ({ id, skills, link, projectName, description, whatILearned, duration, github, velog }: IProjectDetail) => {
+const ProjectDetail = ({ skills, link, projectName, description, duration, github, velog }: IProjectDetail) => {
     return (
         <div className="w-full ">
             <div
@@ -63,10 +48,13 @@ const ProjectDetail = ({ id, skills, link, projectName, description, whatILearne
                     {description}
                 </p>
                 <div
-                    className='flex space-x-4'
+                    className='flex space-x-4 items-center '
                 >
                     <OpenLinkButton link={github} siteName="깃허브" />
                     <OpenLinkButton link={velog} siteName="벨로그" />
+                    <div className='animate-bounce text-fuchsia-500'>
+                        ⬅ 움짤과 함께 자세한 설명은 벨로그를 참고해주세요!
+                    </div>
                 </div>
             </div>
 
