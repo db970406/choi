@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       <div
         className="flex flex-col w-full space-y-4"
       >
-        <ImageHover imgPath="/최성준1.jpg" size={300} >
+        <ImageHover imgPath="/최성준2.jpg" size={300} >
           <Contact />
         </ImageHover>
         <div
