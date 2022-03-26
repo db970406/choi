@@ -6,10 +6,7 @@ const NavBar = () => {
     const routerPush = (path: string) => router.push(path);
     return (
         <div
-            className="
-                flex justify-around items-center
-                top-0 w-full h-20 shadow-xl
-            "
+            className="top-0 flex items-center justify-around w-full h-20 shadow-xl "
         >
             <button
                 onClick={() => routerPush("/")}

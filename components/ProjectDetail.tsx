@@ -17,7 +17,7 @@ const ProjectDetail = ({ skills, link, projectName, description, duration, githu
                             target="_blank"
                         >
                             <h1
-                                className="text-4xl text-gray-400 hover:text-fuchsia-500 transition"
+                                className="text-4xl text-gray-400 transition hover:text-fuchsia-500"
                             >
                                 {projectName}
                             </h1>
@@ -50,7 +50,7 @@ const ProjectDetail = ({ skills, link, projectName, description, duration, githu
                     {description}
                 </p>
                 <div
-                    className='flex space-x-4 items-center '
+                    className='flex items-center space-x-4 '
                 >
                     <OpenLinkButton link={github} siteName="깃허브" />
                     <OpenLinkButton link={velog} siteName="벨로그" />
