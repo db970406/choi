@@ -29,16 +29,11 @@ const LayoutIdAnimation = ({ id, setId, data }: ILayoutIdAnimation) => {
                     animate="end"
                     exit="exit"
                     onClick={() => setId(null)}
-                    className='
-                        flex justify-center items-center 
-                        fixed w-screen h-screen 
-                        inset-0 px-16
-                        md:px-80
-                    '
+                    className='fixed inset-0 flex items-center justify-center w-screen h-screen px-16  md:px-80'
                 >
                     <motion.div
                         layoutId={String(id)}
-                        className="bg-white w-full rounded-2xl p-10 space-y-6"
+                        className="w-full p-10 space-y-6 bg-white rounded-2xl"
                         onClick={(event) => event.stopPropagation()}
                     >
                         <h1 className="text-2xl">

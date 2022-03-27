@@ -20,7 +20,7 @@ const ImageHover = ({ projectId, imgPath, size, children: showComponentWhenHover
             onMouseLeave={() => setIsHovering(false)}
             onMouseEnter={() => setIsHovering(true)}
             onClick={onClick}
-            className="flex justify-center items-center"
+            className="flex items-center justify-center"
         >
             {isHovering ? (
                 <>
@@ -28,7 +28,7 @@ const ImageHover = ({ projectId, imgPath, size, children: showComponentWhenHover
                         src={imgPath}
                         width={size}
                         height={size}
-                        className="rounded-full opacity-30 transition"
+                        className="transition rounded-full opacity-30"
                         placeholder='blur'
                         blurDataURL={imgPath}
                     />

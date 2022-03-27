@@ -16,7 +16,7 @@ const Home: NextPage = () => {
           <Contact />
         </ImageHover>
         <div
-          className='flex flex-col space-y-5 items-center'
+          className='flex flex-col items-center space-y-5'
         >
           <Introduce />
           <MyStudies />

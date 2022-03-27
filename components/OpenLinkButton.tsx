@@ -28,7 +28,7 @@ const OpenLinkButton = ({ siteName, link }: IOpenLinkButtonComponent) => {
         >
             <a
                 target="_blank"
-                className='hover:scale-110 transition'
+                className='transition hover:scale-110'
             >
                 <motion.img
                     src={`/${siteName}.png`}

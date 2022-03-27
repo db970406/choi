@@ -18,11 +18,7 @@ const MainLayout = ({ children, title }: IMainLayout) => {
             </Head>
             <NavBar />
             <div
-                className="
-                    box-border
-                    flex flex-col md:flex-row items-center 
-                    space-y-4 py-10 px-12 font-bold
-                "
+                className="box-border flex flex-col items-center px-12 py-10 space-y-4 font-bold  md:flex-row"
             >
                 {children}
             </div>

@@ -38,7 +38,7 @@ const Project: NextPage<{ myProjects: IProjectDetail[] }> = ({ myProjects }) => 
                 {selectedProjectId ? (
                     <div className="flex flex-col space-y-7">
                         <div
-                            className="w-full flex justify-around items-center space-x-10"
+                            className="flex items-center justify-around w-full space-x-10"
                         >
                             {myProjects?.map(project =>
                                 <motion.div
@@ -73,7 +73,7 @@ const Project: NextPage<{ myProjects: IProjectDetail[] }> = ({ myProjects }) => 
                                 className='flex flex-col w-full'
                             >
                                 <h1
-                                    className="text-center text-xl"
+                                    className="text-xl text-center"
                                 >
                                     프로젝트 특징 및 진행 시 이슈
                                 </h1>
@@ -81,26 +81,17 @@ const Project: NextPage<{ myProjects: IProjectDetail[] }> = ({ myProjects }) => 
                                     <motion.div
                                         key={learned.id}
                                         layoutId={String(learned.id)}
-                                        className='
-                                                w-full px-5 py-3
-                                                flex justify-between
-                                                group
-                                                cursor-pointer
-                                                text-gray-500 hover:text-fuchsia-500
-                                            '
+                                        className='flex justify-between w-full px-5 py-3 text-gray-500 cursor-pointer  group hover:text-fuchsia-500'
                                         onClick={() => setWhatILearnedId(learned.id)}
                                     >
                                         <h1
-                                            className='group-hover:scale-105 transition'
+                                            className='transition group-hover:scale-105'
                                         >
                                             {learned.title}
                                         </h1>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className="
-                                            h-6 w-6
-                                            group-hover:scale-105 transition
-                                        "
+                                            className="w-6 h-6 transition  group-hover:scale-105"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -120,11 +111,11 @@ const Project: NextPage<{ myProjects: IProjectDetail[] }> = ({ myProjects }) => 
                     </div>
                 ) : (
                     <div
-                        className="w-full flex flex-col flex-wrap items-center text-2xl space-y-5"
+                        className="flex flex-col flex-wrap items-center w-full space-y-5 text-2xl"
                     >
                         <h1>보고 싶은 프로젝트를 선택해주세요!</h1>
                         <div
-                            className="w-full flex justify-around items-center space-x-10"
+                            className="flex items-center justify-around w-full space-x-10"
                         >
                             {myProjects?.map(project =>
                                 <motion.div
