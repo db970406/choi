@@ -81,7 +81,7 @@ const Project: NextPage<{ myProjects: IProjectDetail[] }> = ({ myProjects }) => 
                                     <motion.div
                                         key={learned.id}
                                         layoutId={String(learned.id)}
-                                        className='flex justify-between w-full px-5 py-3 text-gray-500 cursor-pointer  group hover:text-fuchsia-500'
+                                        className='flex justify-between w-full px-5 py-3 text-gray-500 cursor-pointer group hover:text-fuchsia-500'
                                         onClick={() => setWhatILearnedId(learned.id)}
                                     >
                                         <h1
@@ -91,7 +91,7 @@ const Project: NextPage<{ myProjects: IProjectDetail[] }> = ({ myProjects }) => 
                                         </h1>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
-                                            className="w-6 h-6 transition  group-hover:scale-105"
+                                            className="w-6 h-6 transition group-hover:scale-105"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -139,7 +139,7 @@ const Project: NextPage<{ myProjects: IProjectDetail[] }> = ({ myProjects }) => 
                     </div>
                 )}
             </div>
-        </MainLayout >
+        </MainLayout>
     );
 };
 
