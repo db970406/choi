@@ -16,35 +16,39 @@ const ImageHover = ({ projectId, imgPath, size, children: showComponentWhenHover
         if (setSelectedProjectId) setSelectedProjectId(projectId!);
     }
     return (
-        <button
-            onMouseLeave={() => setIsHovering(false)}
-            onMouseEnter={() => setIsHovering(true)}
-            onClick={onClick}
-            className="flex items-center justify-center"
+        <div
+            className="mx-auto"
         >
-            {isHovering ? (
-                <>
+            <button
+                onMouseLeave={() => setIsHovering(false)}
+                onMouseEnter={() => setIsHovering(true)}
+                onClick={onClick}
+                className="flex items-center justify-center"
+            >
+                {isHovering ? (
+                    <>
+                        <Image
+                            src={imgPath}
+                            width={size}
+                            height={size}
+                            className="transition rounded-full opacity-30"
+                            placeholder='blur'
+                            blurDataURL={imgPath}
+                        />
+                        {showComponentWhenHover}
+                    </>
+                ) : (
                     <Image
                         src={imgPath}
                         width={size}
                         height={size}
-                        className="transition rounded-full opacity-30"
+                        className="rounded-full"
                         placeholder='blur'
                         blurDataURL={imgPath}
                     />
-                    {showComponentWhenHover}
-                </>
-            ) : (
-                <Image
-                    src={imgPath}
-                    width={size}
-                    height={size}
-                    className="rounded-full"
-                    placeholder='blur'
-                    blurDataURL={imgPath}
-                />
-            )}
-        </button>
+                )}
+            </button>
+        </div>
     )
 }
 
